@@ -1,0 +1,34 @@
+{
+  "regional_performance": [
+    {
+      "region": "North",
+      "total_revenue": 22501.25,
+      "total_units": 450,
+      "top_product": "Product A"
+    },
+    {
+      "region": "West",
+      "total_revenue": 10000.75,
+      "total_units": 200,
+      "top_product": "Product B"
+    },
+    {
+      "region": "East",
+      "total_revenue": 5251.00,
+      "total_units": 350,
+      "top_product": "Product C"
+    },
+    {
+      "region": "South",
+      "total_revenue": 11125.00,
+      "total_units": 455,
+      "top_product": "Product D"
+    }
+  ],
+  "summary": {
+    "highest_revenue_region": "North",
+    "lowest_revenue_region": "East",
+    "total_revenue_across_regions": 48878.00,
+    "analysis_date": "2024-01-18"
+  }
+}
