@@ -4,15 +4,42 @@ import seaborn as sns
 from datetime import datetime
 import json
 import os
+import sys
+
+
+
+
+# Add config to path and import settings
+sys.path.append('config')
+from settings import DATA_CONFIG, ANALYSIS_CONFIG, VISUALIZATION_CONFIG, OUTPUT_CONFIG
 
 class SalesAnalyzer:
-    def __init__(self, data_path):
-        self.data = pd.read_csv(data_path)
-        self.data['date'] = pd.to_datetime(self.data['date'])
+    def __init__(self, data_path=None):
+        # Use config path or provided path
+        self.data_path = data_path or DATA_CONFIG['data_path']
+        self.data = pd.read_csv(self.data_path)
+        self.data[DATA_CONFIG['date_column']] = pd.to_datetime(self.data[DATA_CONFIG['date_column']])
+        
+        # Apply visualization settings
+        plt.style.use(VISUALIZATION_CONFIG['style'])
+        
+    def load_config(self, config_file='config/analysis_config.json'):
+        """Load configuration from JSON file"""
+        try:
+            with open(config_file, 'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"Config file {config_file} not found. Using default settings.")
+            return {}
+    
+    
     
     def load_data(self):
         """Load and display basic info about the dataset"""
+        config = self.load_config()
+        
         print("=== Sales Data Overview ===")
+        print(f"Project: {config.get('project', {}).get('name', 'Sales Analysis')}")
         print(f"Dataset shape: {self.data.shape}")
         print("\nFirst 5 rows:")
         print(self.data.head())
@@ -96,16 +123,16 @@ class SalesAnalyzer:
         plt.show()
 
     def save_results(self):
-        """Save analysis results to files"""
+        """Save analysis results to files using config settings"""
         # Create results directory if it doesn't exist
-        os.makedirs('results', exist_ok=True)
+        os.makedirs(OUTPUT_CONFIG['results_directory'], exist_ok=True)
         
         # Save product performance
         product_stats = self.data.groupby('product').agg({
             'units_sold': 'sum',
             'revenue': 'sum'
         }).round(2)
-        product_stats.to_csv('results/product_performance.csv')
+        product_stats.to_csv(f"{OUTPUT_CONFIG['results_directory']}/product_performance.csv")
         
         # Save regional analysis
         region_stats = self.data.groupby('region').agg({
@@ -119,25 +146,20 @@ class SalesAnalyzer:
                 'highest_revenue_region': region_stats['revenue'].idxmax(),
                 'lowest_revenue_region': region_stats['revenue'].idxmin(),
                 'total_revenue_across_regions': float(region_stats['revenue'].sum()),
-                'analysis_date': str(pd.Timestamp.now().date())
+                'analysis_date': str(pd.Timestamp.now().date()),
+                'currency': ANALYSIS_CONFIG['currency']
             }
         }
         
-        with open('results/regional_analysis.json', 'w') as f:
+        with open(f"{OUTPUT_CONFIG['results_directory']}/regional_analysis.json", 'w') as f:
             json.dump(regional_data, f, indent=2)
         
-        # Save monthly trends
-        monthly_data = self.monthly_trend_analysis()
-        monthly_data.to_csv('results/monthly_trends.csv', index=False)
-        
-        print("✅ Results saved to 'results/' folder:")
-        print("   - product_performance.csv")
-        print("   - regional_analysis.json") 
-        print("   - monthly_trends.csv")
+        print("✅ Results saved using configuration settings!")
+        print(f"📁 Location: {OUTPUT_CONFIG['results_directory']}/")
 
 def main():
-    # Initialize analyzer
-    analyzer = SalesAnalyzer('data/sales_data.csv')
+    # Initialize analyzer (will use config settings)
+    analyzer = SalesAnalyzer()
     
     # Run analyses
     analyzer.load_data()
@@ -149,7 +171,8 @@ def main():
     analyzer.save_results()
     
     print("\n=== Analysis Complete ===")
-    print("📊 Check the 'results' folder for generated files!")
+    print("📊 Check the results folder for generated files!")
+    print("⚙️  All settings loaded from config files")
 
 if __name__ == "__main__":
     main()
