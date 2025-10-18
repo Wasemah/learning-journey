@@ -1,0 +1,21 @@
+student_id,name,class,subject,score,attendance,study_hours,parent_education,extracurricular
+1,Alice Johnson,10A,Mathematics,85,95,12,Bachelor's,Yes
+2,Bob Smith,10A,Mathematics,78,88,10,High School,No
+3,Carol Davis,10A,Mathematics,92,98,15,Master's,Yes
+4,David Wilson,10B,Mathematics,65,75,8,High School,No
+5,Eva Brown,10B,Mathematics,88,92,14,Bachelor's,Yes
+6,Frank Miller,10A,Science,82,90,11,Bachelor's,Yes
+7,Grace Lee,10A,Science,95,96,16,Master's,Yes
+8,Henry Taylor,10B,Science,71,80,9,High School,No
+9,Iris White,10B,Science,89,94,13,Bachelor's,Yes
+10,Jack Harris,10A,English,76,85,10,High School,No
+11,Karen Clark,10A,English,91,97,14,Bachelor's,Yes
+12,Leo Martinez,10B,English,68,78,7,High School,No
+13,Mia Anderson,10B,English,84,89,12,Bachelor's,Yes
+14,Nathan Thomas,10A,History,79,87,11,High School,Yes
+15,Olivia Garcia,10A,History,87,93,13,Bachelor's,Yes
+16,Paul Robinson,10B,History,73,82,8,High School,No
+17,Quinn Hall,10B,History,90,95,15,Master's,Yes
+18,Rachel King,10A,Mathematics,81,91,12,Bachelor's,No
+19,Sam Wright,10A,Science,94,96,15,Master's,Yes
+20,Tina Scott,10B,English,86,90,13,Bachelor's,Yes
