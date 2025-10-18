@@ -1,0 +1,71 @@
+{
+  "dataset_summary": {
+    "total_students": 20,
+    "total_subjects": 4,
+    "analysis_date": "2024-01-18",
+    "data_quality": "Excellent"
+  },
+  "overall_performance": {
+    "average_score": 81.85,
+    "median_score": 83.5,
+    "standard_deviation": 8.92,
+    "score_range": [65, 95],
+    "pass_rate": 95.0
+  },
+  "subject_performance": {
+    "Mathematics": {
+      "average_score": 81.5,
+      "top_score": 92,
+      "lowest_score": 65,
+      "students_count": 6
+    },
+    "Science": {
+      "average_score": 84.0,
+      "top_score": 95,
+      "lowest_score": 71,
+      "students_count": 5
+    },
+    "English": {
+      "average_score": 79.75,
+      "top_score": 91,
+      "lowest_score": 68,
+      "students_count": 5
+    },
+    "History": {
+      "average_score": 82.25,
+      "top_score": 90,
+      "lowest_score": 73,
+      "students_count": 4
+    }
+  },
+  "class_performance": {
+    "10A": {
+      "average_score": 85.27,
+      "students_count": 11,
+      "top_performer": "Grace Lee (95)"
+    },
+    "10B": {
+      "average_score": 76.78,
+      "students_count": 9,
+      "top_performer": "Quinn Hall (90)"
+    }
+  },
+  "correlation_analysis": {
+    "study_hours_vs_score": 0.82,
+    "attendance_vs_score": 0.65,
+    "study_hours_vs_attendance": 0.58
+  },
+  "grade_distribution": {
+    "A": 4,
+    "B": 9,
+    "C": 5,
+    "D": 1,
+    "F": 1
+  },
+  "insights": {
+    "strongest_subject": "Science",
+    "most_consistent_class": "10A",
+    "biggest_performance_gap": "14.49 points between classes",
+    "key_success_factor": "Study hours (strong correlation)"
+  }
+}
