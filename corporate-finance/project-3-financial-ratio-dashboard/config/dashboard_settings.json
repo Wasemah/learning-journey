@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "title": "Financial Ratio Analysis Dashboard",
+    "version": "1.0.0",
+    "description": "Interactive dashboard for financial ratio analysis and benchmarking",
+    "author": "Corporate Finance Analytics Team"
+  },
+  "layout": {
+    "theme": "corporate",
+    "primary_color": "#1E3A8A",
+    "secondary_color": "#3B82F6",
+    "font_family": "Arial, sans-serif",
+    "responsive": true
+  },
+  "sections": {
+    "executive_summary": {
+      "enabled": true,
+      "position": "top",
+      "include_health_score": true,
+      "include_key_metrics": true
+    },
+    "profitability_analysis": {
+      "enabled": true,
+      "charts": ["margin_trends", "roa_roe_comparison", "industry_benchmarks"],
+      "include_detailed_table": true
+    },
+    "liquidity_analysis": {
+      "enabled": true,
+      "charts": ["liquidity_ratios", "cash_flow_analysis", "working_capital"],
+      "include_detailed_table": true
+    },
+    "comparative_analysis": {
+      "enabled": true,
+      "charts": ["company_comparison", "industry_position", "trend_analysis"],
+      "include_benchmarks": true
+    }
+  },
+  "interactivity": {
+    "company_selection": true,
+    "time_period_filter": true,
+    "ratio_category_filter": true,
+    "export_functionality": true,
+    "drill_down_capability": true
+  },
+  "data_sources": {
+    "financial_statements": "data/financial_statements.csv",
+    "industry_benchmarks": "data/industry_benchmarks.json",
+    "market_data": "data/market_indicators.json",
+    "update_frequency": "quarterly"
+  }
+}
