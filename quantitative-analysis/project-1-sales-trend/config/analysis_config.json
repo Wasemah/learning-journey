@@ -1,0 +1,37 @@
+{
+  "project": {
+    "name": "Sales Trend Analysis",
+    "version": "1.0.0",
+    "description": "Analysis of sales patterns and trends over time"
+  },
+  "data_sources": {
+    "primary": "data/sales_data.csv",
+    "backup": "data/raw_sales_data.xlsx",
+    "external_sources": []
+  },
+  "analysis_parameters": {
+    "timeframe": {
+      "start_date": "2024-01-01",
+      "end_date": "2024-01-31",
+      "frequency": "daily"
+    },
+    "metrics": ["revenue", "units_sold", "average_order_value"],
+    "segments": ["product", "category", "region"],
+    "thresholds": {
+      "high_sales": 100,
+      "high_revenue": 5000,
+      "growth_target": 0.1
+    }
+  },
+  "output_settings": {
+    "generate_charts": true,
+    "generate_reports": true,
+    "chart_formats": ["png", "pdf"],
+    "report_formats": ["csv", "json", "md"]
+  },
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@company.com",
+    "department": "Data Analytics"
+  }
+}
