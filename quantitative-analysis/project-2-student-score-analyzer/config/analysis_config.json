@@ -1,0 +1,60 @@
+{
+  "project": {
+    "name": "Student Score Analyzer",
+    "version": "1.0.0",
+    "description": "Statistical analysis of student performance data",
+    "author": "Your Name",
+    "department": "Education Analytics"
+  },
+  "data_parameters": {
+    "expected_columns": [
+      "student_id",
+      "name", 
+      "class",
+      "subject",
+      "score",
+      "attendance",
+      "study_hours",
+      "parent_education",
+      "extracurricular"
+    ],
+    "required_columns": ["student_id", "class", "subject", "score"],
+    "data_types": {
+      "student_id": "integer",
+      "score": "integer",
+      "attendance": "integer",
+      "study_hours": "integer"
+    }
+  },
+  "analysis_workflow": {
+    "steps": [
+      "data_validation",
+      "descriptive_statistics",
+      "subject_comparison",
+      "class_comparison",
+      "correlation_analysis",
+      "factor_analysis",
+      "grade_calculation",
+      "report_generation"
+    ],
+    "generate_visualizations": true,
+    "save_intermediate_results": false
+  },
+  "output_settings": {
+    "results_directory": "results",
+    "create_timestamped_folders": true,
+    "backup_previous_results": true,
+    "formats": {
+      "charts": ["png", "pdf"],
+      "reports": ["md", "json"],
+      "data": ["csv"]
+    }
+  },
+  "quality_checks": {
+    "score_range": [0, 100],
+    "attendance_range": [0, 100],
+    "study_hours_range": [0, 24],
+    "validate_student_ids": true,
+    "check_duplicates": true
+  }
+}
