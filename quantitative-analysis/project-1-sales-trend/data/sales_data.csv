@@ -1,0 +1,11 @@
+date,product,category,units_sold,revenue,region
+2024-01-01,Product A,Electronics,150,7500.50,North
+2024-01-01,Product B,Home Appliances,80,4000.00,South
+2024-01-02,Product A,Electronics,120,6000.75,North
+2024-01-02,Product C,Clothing,200,3000.25,East
+2024-01-03,Product B,Home Appliances,90,4500.50,West
+2024-01-03,Product D,Books,300,1500.00,South
+2024-01-04,Product A,Electronics,180,9000.00,North
+2024-01-04,Product C,Clothing,150,2250.75,East
+2024-01-05,Product B,Home Appliances,110,5500.25,West
+2024-01-05,Product E,Electronics,75,5625.00,South
