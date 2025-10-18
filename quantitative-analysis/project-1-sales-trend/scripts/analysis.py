@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
+import json
+import os
 
 class SalesAnalyzer:
     def __init__(self, data_path):
@@ -93,6 +95,46 @@ class SalesAnalyzer:
         plt.savefig('results/sales_analysis_dashboard.png', dpi=300, bbox_inches='tight')
         plt.show()
 
+    def save_results(self):
+        """Save analysis results to files"""
+        # Create results directory if it doesn't exist
+        os.makedirs('results', exist_ok=True)
+        
+        # Save product performance
+        product_stats = self.data.groupby('product').agg({
+            'units_sold': 'sum',
+            'revenue': 'sum'
+        }).round(2)
+        product_stats.to_csv('results/product_performance.csv')
+        
+        # Save regional analysis
+        region_stats = self.data.groupby('region').agg({
+            'units_sold': 'sum',
+            'revenue': 'sum'
+        }).sort_values('revenue', ascending=False)
+        
+        regional_data = {
+            'regional_performance': region_stats.reset_index().to_dict('records'),
+            'summary': {
+                'highest_revenue_region': region_stats['revenue'].idxmax(),
+                'lowest_revenue_region': region_stats['revenue'].idxmin(),
+                'total_revenue_across_regions': float(region_stats['revenue'].sum()),
+                'analysis_date': str(pd.Timestamp.now().date())
+            }
+        }
+        
+        with open('results/regional_analysis.json', 'w') as f:
+            json.dump(regional_data, f, indent=2)
+        
+        # Save monthly trends
+        monthly_data = self.monthly_trend_analysis()
+        monthly_data.to_csv('results/monthly_trends.csv', index=False)
+        
+        print("✅ Results saved to 'results/' folder:")
+        print("   - product_performance.csv")
+        print("   - regional_analysis.json") 
+        print("   - monthly_trends.csv")
+
 def main():
     # Initialize analyzer
     analyzer = SalesAnalyzer('data/sales_data.csv')
@@ -103,8 +145,11 @@ def main():
     analyzer.product_performance()
     analyzer.regional_analysis()
     
+    # Save results
+    analyzer.save_results()
+    
     print("\n=== Analysis Complete ===")
-    print("Check the 'results' folder for visualizations!")
+    print("📊 Check the 'results' folder for generated files!")
 
 if __name__ == "__main__":
     main()
