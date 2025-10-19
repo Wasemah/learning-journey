@@ -1,0 +1,7 @@
+[MASTER]
+
+[MESSAGES CONTROL]
+disable=missing-module-docstring,missing-class-docstring,missing-function-docstring,trailing-whitespace,line-too-long,import-error,wrong-import-order,unused-import,broad-exception-caught
+
+[FORMAT]
+max-line-length=100
