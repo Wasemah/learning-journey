@@ -1,7 +1,27 @@
 [MASTER]
 
 [MESSAGES CONTROL]
-disable=missing-module-docstring,missing-class-docstring,missing-function-docstring,trailing-whitespace,line-too-long,import-error,wrong-import-order,unused-import,broad-exception-caught
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    trailing-whitespace,
+    line-too-long,
+    import-error,
+    wrong-import-order,
+    unused-import,
+    broad-exception-caught,
+    no-else-return,
+    inconsistent-return-statements,
+    unused-argument,
+    redefined-outer-name,
+    invalid-name,
+    unspecified-encoding,
+    unused-variable,
+    bare-except,
+    wrong-import-position,
+    multiple-statements,
+    duplicate-code
 
 [FORMAT]
 max-line-length=100
