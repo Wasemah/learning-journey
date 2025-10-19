@@ -1,31 +1,35 @@
 import pandas as pd
-import numpy as np
-import pandas as pd
 
-
-
-class DataAnalyzer:
+class DataMapper:
     def __init__(self, data):
         self.data = data
     
-    def show_data_info(self):
-        """Show basic information about the dataset"""
-        print(f"Dataset shape: {self.data.shape}")
-        print("\nFirst 5 rows:")
-        print(self.data.head())
-        print("\nData types:")
+    def data_fast(self):
+        # Method for fast data processing
+        pass
+    
+    def add_value(self, value):
+        # Method to add values
+        pass
+    
+    def new_data_info(self):
+        """Displays information about the dataset"""
+        print("Dataset shape:", self.data.shape)
+        print("Column names:", self.data.columns.tolist())
+        print("Data types:")
         print(self.data.dtypes)
-        print("\nMissing values:")
+        print("Basic statistics:")
+        print(self.data.describe())
+        print("Missing values:")
         print(self.data.isnull().sum())
 
-# Example of how to use it:
 if __name__ == "__main__":
     # Create sample data for testing
     sample_data = pd.DataFrame({
-        'name': ['Alice', 'Bob', 'Charlie'],
+        'name': ['John', 'Jane', 'Bob'],
         'score': [85, 92, 78],
-        'age': [20, 21, 19]
+        'age': [25, 30, 35]
     })
     
-    analyzer = DataAnalyzer(sample_data)
-    analyzer.show_data_info()
+    program = DataMapper(sample_data)
+    program.new_data_info()
