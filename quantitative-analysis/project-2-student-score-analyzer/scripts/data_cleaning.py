@@ -1,19 +1,20 @@
 import pandas as pd
 import numpy as np
 
-
 class DataAnalyzer:
     def __init__(self, data):
         self.data = data
-     def show_data_info(self):
-    """Show basic information about the dataset"""
-    print(f"Dataset shape: {self.data.shape}")
-    print("\nFirst 5 rows:")
-    print(self.data.head())
-    print("\nData types:")
-    print(self.data.dtypes)
-    print("\nMissing values:")
-    print(self.data.isnull().sum())
+    
+    def show_data_info(self):
+        """Show basic information about the dataset"""
+        print(f"Dataset shape: {self.data.shape}")
+        print("\nFirst 5 rows:")
+        print(self.data.head())
+        print("\nData types:")
+        print(self.data.dtypes)
+        print("\nMissing values:")
+        print(self.data.isnull().sum())
+
 # Example of how to use it:
 if __name__ == "__main__":
     # Create sample data for testing
